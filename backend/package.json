@@ -1,0 +1,31 @@
+{
+  "name": "ats-backend",
+  "version": "1.0.0",
+  "description": "AI-powered ATS backend with Express + MongoDB Atlas + Anthropic",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "express-async-errors": "^3.1.1",
+    "mammoth": "^1.8.0",
+    "mongoose": "^8.5.1",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^6.22.0",
+    "pdf-parse": "^1.1.1",
+    "pdfjs-dist": "^5.4.624",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "eslint": "^9.7.0",
+    "nodemon": "^3.1.4"
+  }
+}
