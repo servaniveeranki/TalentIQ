@@ -1,0 +1,140 @@
+/* ── Fonts — MUST be first, before any @tailwind directives ── */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ──────────────────────────────────────────── */
+:root {
+  --bg:         #080c10;
+  --bg2:        #0e1318;
+  --bg3:        #141a21;
+  --border:     rgba(255,255,255,0.06);
+  --border-md:  rgba(255,255,255,0.10);
+  --border-hi:  rgba(255,255,255,0.18);
+  --text:       #dde3ec;
+  --text-2:     #8892a0;
+  --text-3:     #4a5568;
+  --accent:     #3b82f6;
+  --accent-dim: rgba(59,130,246,0.12);
+  --green:      #10b981;
+  --green-dim:  rgba(16,185,129,0.10);
+  --amber:      #f59e0b;
+  --amber-dim:  rgba(245,158,11,0.10);
+  --red:        #ef4444;
+  --red-dim:    rgba(239,68,68,0.10);
+  --violet:     #8b5cf6;
+  --cyan:       #06b6d4;
+  --radius:     8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+}
+
+/* ── Reset + Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Geist', 'Geist Variable', -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#__next, [data-nextjs-scroll-focus-boundary] { width: 100%; height: 100%; }
+
+/* ── Inputs & textareas ─────────────────────────────────────── */
+input, textarea, select {
+  font-family: 'Geist', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg2);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+input::placeholder, textarea::placeholder { color: var(--text-3); }
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.10);
+}
+
+/* ── Range slider ───────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: var(--border-md);
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+input[type="range"]:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: 2px solid rgba(59,130,246,0.4);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  transition: box-shadow 0.15s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px rgba(59,130,246,0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: 2px solid rgba(59,130,246,0.4);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 4px; height: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--border-md); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hi); }
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseDot {
+  0%, 80%, 100% { transform: scale(0.5); opacity: 0.3; }
+  40%            { transform: scale(1);   opacity: 1;   }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+.anim-up   { animation: fadeSlideUp 0.35s ease both; }
+.dot-pulse { animation: pulseDot 1.2s ease-in-out infinite; }
+
+/* ── Utility overrides ──────────────────────────────────────── */
+.font-mono { font-family: 'Geist Mono', 'JetBrains Mono', monospace !important; }
