@@ -119,11 +119,3 @@ TalentIQ uses **MongoDB Atlas** for:
 
 ---
 
-## 🏗️ Architecture
-Frontend (Next.js)
-↓
-Backend (Express API)
-↓
-AI Layer (Groq LLM)
-↓
-MongoDB Atlas (Cloud Storage)
